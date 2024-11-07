@@ -10,9 +10,9 @@ class Customer(db.Model):
     age = db.Column(db.Integer)
 
     def __init__(self, name, city, age):
-        if name < 5 or name > 50:
+        if len(name) < 5 or len(name) > 50:
             raise ValueError('Name must be between 5 and 50 characters')
-        if city < 3 or city > 50:
+        if len(city) < 3 or len(city) > 50:
             raise ValueError('City must be between 3 and 50 characters')
         if name and not re.match("^[a-zA-Z ]*$", name):
             raise ValueError('Name must contain only letters and spaces')
